@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FantasyAgent</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>FantasyAgent</h1>
+        <p id="status">Connecting to local runner...</p>
+      </div>
+      <span id="status-dot"></span>
+    </header>
+
+
+    <section id="strategy-card" class="card">
+      <div class="eyebrow">Draft strategy</div>
+      <h2>Choose your strategy</h2>
+
+      <div class="strategy-options">
+        <label>
+          <input
+            type="radio"
+            name="strategy"
+            value="balanced"
+          >
+          <span>
+            <strong>Balanced</strong>
+            <small>Fill needs while balancing RB/WR value.</small>
+          </span>
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="strategy"
+            value="rb-heavy"
+          >
+          <span>
+            <strong>RB Heavy</strong>
+            <small>Favor RBs when candidates are otherwise close.</small>
+          </span>
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="strategy"
+            value="wr-heavy"
+          >
+          <span>
+            <strong>WR Heavy</strong>
+            <small>Favor WRs when candidates are otherwise close.</small>
+          </span>
+        </label>
+      </div>
+
+      <button id="save-strategy" type="button">
+        Use selected strategy
+      </button>
+
+      <p id="strategy-status"></p>
+    </section>
+
+    <section id="empty-state" class="card">
+      <h2>No recommendation yet</h2>
+      <p>
+        Keep your FantasyAgent Python runner open. A recommendation
+        will appear here when the runner generates one.
+      </p>
+    </section>
+
+    <section id="recommendation" class="hidden">
+      <div class="card recommended-card">
+        <div class="eyebrow">Recommended player</div>
+        <h2 id="recommended-name"></h2>
+        <div id="recommended-position" class="position"></div>
+        <p id="recommended-reason"></p>
+      </div>
+
+      <h3>Top 5 ranked candidates</h3>
+      <div id="rankings"></div>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

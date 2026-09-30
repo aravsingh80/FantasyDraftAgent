@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "FantasyAgent Sleeper Assistant",
+  "version": "0.1.2",
+
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "https://sleeper.com/*",
+    "https://*.sleeper.com/*",
+    "https://api.sleeper.app/*",
+    "http://127.0.0.1:8765/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://sleeper.com/*",
+        "https://*.sleeper.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "FantasyAgent"
+  }
+}
